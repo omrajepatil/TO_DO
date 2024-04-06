@@ -1,0 +1,17 @@
+.nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: rgb(128, 128, 128);
+    border-radius: 6px;
+}
+.nav ul{
+    display: flex;
+    flex-direction: row;
+    
+}
+ul li{
+    padding: 10px;
+    
+}
+

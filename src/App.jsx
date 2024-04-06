@@ -1,33 +1,46 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import Nav from '../component/Nav'
+// import './component/nav.css'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [todos, setTodos] = useState()
+  const [todo, setTodo] = useState([])
+
+
+  const handleAdd = () =>{
+    setTodos([...todos, {todo, isCompleted:false}])
+    setTodo("")
+  }
+
+  const handleChange = (e) =>{
+    
+    setTodo("e.target.value")
+  }
+
+  const handleEdit = () =>{
+    
+  }
+
+  const handleDelete = () =>{
+    
+  }
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <Nav></Nav>
+      <div className="todo">
+        <div className="add">
+        <input onChange={handleChange}  value={todo} type="text" placeholder="Add a task"/>
+        <button onClick={handleAdd}>Add Task +</button>
+        </div>
+        <div className="todoList">
+        {todos.map(item=>{
+          return
+           ( <><h2>Your ToDos</h2><p>{item.todo}</p><button onClick={handleEdit}>Edit</button><button onClick={handleDelete}>Delete</button></> );
+          })}
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }
